@@ -19,7 +19,7 @@ class UploadedImage extends StatefulWidget {
 
 class _UploadedImageState extends State<UploadedImage> {
   String uri =
-      "https://c88b-34-86-86-225.ngrok-free.app/predict";
+      "https://a426-34-86-176-179.ngrok-free.app/upload";
   dynamic responseList;
   bool? isLoading = false;
   bool? isPredictionFinish = false;
@@ -29,7 +29,7 @@ class _UploadedImageState extends State<UploadedImage> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Disease Prediction", style: TextStyle(color: AppTheme.colors.blue),),
+        title: Text("Brain Tumor Prediction", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
       ),
       body: SingleChildScrollView(
@@ -93,9 +93,9 @@ class _UploadedImageState extends State<UploadedImage> {
                     children: [
                       Center(
                         child: Text(
-                          "Disease : ${responseList["class"]}",
+                          "Prediction : ${responseList["prediction"]}",
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 25,
                             color: AppTheme.colors.blue, // Dark blue
                             fontFamily: 'Raleway ', // Use a different font
                           ),
@@ -103,9 +103,9 @@ class _UploadedImageState extends State<UploadedImage> {
                       ),
                       Center(
                         child: Text(
-                          "Confidence : ${responseList["confidence"] * 100}%",
+                          "Probabilitie : ${(responseList["probabilities"][0] * 100).toStringAsFixed(2)}%",
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             color: AppTheme.colors.blue, // Dark blue
                             fontFamily: 'Raleway ', // Use a different font
                           ),

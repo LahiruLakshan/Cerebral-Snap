@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:cerebral_snap/screen/brain_tumor_home.dart';
+import 'package:cerebral_snap/screen/dysarthria_home.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -130,12 +131,12 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: 30.0),
                       AppElevatedButtonIcon(
                         onPressed: () {
-                          // providerUser.currentUser = widget.currentUser;
-                          // print("User : ${widget.currentUser}");
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => InstructorSignUp(currentUser: widget.currentUser)),
-                          // );
+                          providerUser.currentUser = widget.currentUser;
+                          print("User : ${widget.currentUser}");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DysarthriaHome(currentUser: widget.currentUser)),
+                          );
                         },
                         title: "Dysarthria prediction",
                         fontSize: 18,
@@ -148,12 +149,12 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: 30.0),
                       AppElevatedButtonIcon(
                         onPressed: () {
-                          providerUser.currentUser = widget.currentUser;
-                          print("User : ${widget.currentUser}");
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => BrainTumorHome(currentUser: widget.currentUser)),
-                          );
+                          // providerUser.currentUser = widget.currentUser;
+                          // print("User : ${widget.currentUser}");
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(builder: (context) => BrainTumorHome(currentUser: widget.currentUser)),
+                          // );
                         },
                         title: "Play Games",
                         fontSize: 18,

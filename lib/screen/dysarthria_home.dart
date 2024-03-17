@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:cerebral_snap/screen/recorder.dart';
 import 'package:cerebral_snap/screen/upload_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,16 +12,15 @@ import 'package:image_picker/image_picker.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_elevated_button_icon.dart';
 
-
-class BrainTumorHome extends StatefulWidget {
+class DysarthriaHome extends StatefulWidget {
   final  DocumentSnapshot<Object?>? currentUser;
-  const BrainTumorHome({Key? key, this.currentUser}) : super(key: key);
+  const DysarthriaHome({Key? key, this.currentUser}) : super(key: key);
 
   @override
-  State<BrainTumorHome> createState() => _BrainTumorHomeState();
+  State<DysarthriaHome> createState() => _DysarthriaHomeState();
 }
 
-class _BrainTumorHomeState extends State<BrainTumorHome> {
+class _DysarthriaHomeState extends State<DysarthriaHome> {
   File? uploadImage;
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Brain Tumor", style: TextStyle(color: AppTheme.colors.blue),),
+        title: Text("Dysarthria Prediction", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
       ),
       body: SingleChildScrollView(
@@ -42,48 +43,30 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
                   children: [
                     AppElevatedButtonIcon(
                       onPressed: () {
-                        pickImage(ImageSource.camera).then((value) => {
-                          if (value != null)
-                            {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        UploadedImage(
-                                            uploadImage:
-                                            uploadImage)),
-                              )
-                            }
-                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Recorder()),
+                        );
                       },
-                      title: "${"Camera"}",
+                      title: "${"Recoder"}",
                       fontSize: 18.0,
                       icon:
-                      const FaIcon(FontAwesomeIcons.camera, size: 20),
+                      const FaIcon(FontAwesomeIcons.recordVinyl, size: 20),
                       primary: AppTheme.colors.blue,
                       onPrimary: AppTheme.colors.white,
                       width: (width - 30) / 2 - 15,
                       borderRadius: 10,
                     ),
                     AppElevatedButtonIcon(
-                      onPressed: () {
-                        pickImage(ImageSource.gallery).then((value) => {
-                          if (value != null)
-                            {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        UploadedImage(
-                                            uploadImage:
-                                            uploadImage)),
-                              )
-                            }
-                        });
-                      },
-                      title: "${"Gallery"}",
+                      onPressed: () async {
+                        final result = await FilePicker.platform.pickFiles();
+                        if (result == null) return;
+                        },
+                      title: "${"Audio File"}",
                       fontSize: 18.0,
-                      icon: const FaIcon(FontAwesomeIcons.photoFilm,
+                      icon: const FaIcon(FontAwesomeIcons.fileAudio,
                           size: 20),
                       primary: AppTheme.colors.blue,
                       onPrimary: AppTheme.colors.white,
