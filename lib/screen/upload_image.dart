@@ -19,7 +19,7 @@ class UploadedImage extends StatefulWidget {
 
 class _UploadedImageState extends State<UploadedImage> {
   String uri =
-      "https://a426-34-86-176-179.ngrok-free.app/upload";
+      "https://b4d8-35-227-129-99.ngrok-free.app/upload";
   dynamic responseList;
   bool? isLoading = false;
   bool? isPredictionFinish = false;

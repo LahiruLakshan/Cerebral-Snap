@@ -1,5 +1,6 @@
 import 'dart:io';
-
+import 'dart:convert';
+import 'dart:io';
 import 'package:cerebral_snap/screen/recorder.dart';
 import 'package:cerebral_snap/screen/upload_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -8,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../theme/app_theme.dart';
 import '../widgets/app_elevated_button_icon.dart';
@@ -22,6 +25,12 @@ class DysarthriaHome extends StatefulWidget {
 
 class _DysarthriaHomeState extends State<DysarthriaHome> {
   File? uploadImage;
+  String uri =
+      "https://d00d-35-194-203-8.ngrok-free.app/predict";
+  dynamic responseList;
+  bool? isLoading = false;
+  bool? isPredictionFinish = false;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -43,12 +52,12 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                   children: [
                     AppElevatedButtonIcon(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Recorder()),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) =>
+                        //           Recorder()),
+                        // );
                       },
                       title: "${"Recoder"}",
                       fontSize: 18.0,
@@ -61,8 +70,12 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                     ),
                     AppElevatedButtonIcon(
                       onPressed: () async {
+                        setState(() {
+                          isLoading = true;
+                        });
                         final result = await FilePicker.platform.pickFiles();
                         if (result == null) return;
+                        handleUploadImage(File(result.files.single.path!));
                         },
                       title: "${"Audio File"}",
                       fontSize: 18.0,
@@ -93,6 +106,26 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                   onPrimary: AppTheme.colors.white,
                   borderRadius: 10,
                 ),
+                if (isLoading!)
+                  LoadingAnimationWidget.prograssiveDots(
+                    color: AppTheme.colors.blue,
+                    size: 100,
+                  ),
+                if (isPredictionFinish!)
+                  Column(
+                    children: [
+                      Center(
+                        child: Text(
+                          "Prediction : ${responseList["prediction"]}",
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: AppTheme.colors.blue, // Dark blue
+                            fontFamily: 'Raleway ', // Use a different font
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
               ],
             ),
           ),
@@ -100,19 +133,28 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
       ),
     );
   }
-  Future pickImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
 
-      final imageTemporary = File(image.path);
-      setState(() {
-        uploadImage = imageTemporary;
-      });
+  void handleUploadImage(File uploadImage) async {
+    final request = http.MultipartRequest("POST", Uri.parse(uri));
+    final headers = {"Content-type": "multipart/form-data"};
 
-      return imageTemporary;
-    } on PlatformException catch (e) {
-      print("Failed ro pick image => $e");
-    }
+    request.files.add(http.MultipartFile(
+        'audio',
+        uploadImage.readAsBytes().asStream(),
+        uploadImage.lengthSync(),
+        filename: uploadImage.path.split("/").last
+    ));
+
+    request.headers.addAll(headers);
+    final response = await request.send();
+    http.Response res = await http.Response.fromStream(response);
+    final resJson = jsonDecode(res.body);
+    print("Response => $resJson");
+    setState(() {
+      responseList = resJson;
+      isLoading = false;
+      isPredictionFinish = true;
+    });
+    print("prediction => ${responseList["prediction"]}");
   }
 }
