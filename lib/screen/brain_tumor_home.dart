@@ -30,7 +30,14 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
         title: Text("Brain Tumor", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/background.png"),
+            opacity: 0.8,
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),

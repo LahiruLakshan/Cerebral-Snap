@@ -19,7 +19,7 @@ class UploadedImage extends StatefulWidget {
 
 class _UploadedImageState extends State<UploadedImage> {
   String uri =
-      "https://b4d8-35-227-129-99.ngrok-free.app/upload";
+      "https://5ec2-34-70-30-114.ngrok-free.app/upload";
   dynamic responseList;
   bool? isLoading = false;
   bool? isPredictionFinish = false;
@@ -32,7 +32,14 @@ class _UploadedImageState extends State<UploadedImage> {
         title: Text("Brain Tumor Prediction", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/background.png"),
+            opacity: 0.8,
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),

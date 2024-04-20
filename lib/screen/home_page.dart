@@ -98,9 +98,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/background.png"),
+            opacity: 0.8,
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
               margin: EdgeInsets.symmetric(horizontal: 15),
@@ -117,13 +124,14 @@ class _HomePageState extends State<HomePage> {
                           print("User : ${widget.currentUser}");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => BrainTumorHome(currentUser: widget.currentUser)),
+                            MaterialPageRoute(
+                                builder: (context) => BrainTumorHome(
+                                    currentUser: widget.currentUser)),
                           );
                         },
                         title: "Brain tumor prediction",
                         fontSize: 18,
-                        icon: const FaIcon(FontAwesomeIcons.brain,
-                            size: 20),
+                        icon: const FaIcon(FontAwesomeIcons.brain, size: 20),
                         primary: AppTheme.colors.blue,
                         onPrimary: AppTheme.colors.white,
                         borderRadius: 10,
@@ -135,7 +143,9 @@ class _HomePageState extends State<HomePage> {
                           print("User : ${widget.currentUser}");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DysarthriaHome(currentUser: widget.currentUser)),
+                            MaterialPageRoute(
+                                builder: (context) => DysarthriaHome(
+                                    currentUser: widget.currentUser)),
                           );
                         },
                         title: "Dysarthria prediction",
@@ -158,8 +168,8 @@ class _HomePageState extends State<HomePage> {
                         },
                         title: "Play Games",
                         fontSize: 18,
-                        icon: const FaIcon(FontAwesomeIcons.gamepad,
-                            size: 20),
+                        icon:
+                            const FaIcon(FontAwesomeIcons.gamepad, size: 20),
                         primary: AppTheme.colors.blue,
                         onPrimary: AppTheme.colors.white,
                         borderRadius: 10,
