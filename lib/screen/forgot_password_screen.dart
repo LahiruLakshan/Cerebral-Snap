@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -32,8 +31,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
       showDialog(context: context, builder: (context){
         return AlertDialog(
-          backgroundColor: Color(0xffffffff),
-          content: Text("Password reset link sent! Check your email",
+          backgroundColor: const Color(0xffffffff),
+          content: const Text("Password reset link sent! Check your email",
               style: TextStyle(
                   fontFamily: 'Roboto-Medium',
                   fontSize: 16,
@@ -53,9 +52,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     } on FirebaseException catch (e) {
       showDialog(context: context, builder: (context){
         return AlertDialog(
-          backgroundColor: Color(0xffffffff),
+          backgroundColor: const Color(0xffffffff),
           content: Text(e.message.toString(),
-              style: TextStyle(
+              style: const TextStyle(
                   fontFamily: 'Roboto-Medium',
                   fontSize: 16,
                   color: Color(0xff000000))),
@@ -95,8 +94,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-           Padding(
-             padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 8.0),
+           const Padding(
+             padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 8.0),
              child: Text(
                 "Enter your Email and we will send you a password reset link",
                 textAlign: TextAlign.center,

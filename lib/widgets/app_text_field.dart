@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../theme/app_theme.dart';
 
@@ -90,7 +89,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 )
               : null,
         ),
-        validator: widget.validator ?? null
+        validator: widget.validator
         ,
         obscureText: widget.obscureText ? _obscureText : false,
       ),

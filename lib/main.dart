@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:cerebral_snap/providers/user_provider.dart';
 import 'package:cerebral_snap/screen/home_page.dart';
@@ -8,7 +7,6 @@ import 'package:cerebral_snap/screen/welcom_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -73,9 +71,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Emirates Offroaders',
         theme: ThemeData(
-          primarySwatch: createMaterialColor(Color(0xffC6AD70)),
+          primarySwatch: createMaterialColor(const Color(0xff00388b)),
         ),
-        home: Splash(),
+        home: const Splash(),
         builder: EasyLoading.init(),
       ),
     );
@@ -201,13 +199,13 @@ class _Splash extends State<Splash> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final User currentUser = FirebaseAuth.instance.currentUser!;
-              final Stream<DocumentSnapshot> _usersStream = FirebaseFirestore
+              final Stream<DocumentSnapshot> usersStream = FirebaseFirestore
                   .instance
                   .collection("user")
                   .doc(currentUser.uid)
                   .snapshots();
               print(
-                  "----------------------CurrentUser Detected----------------${currentUser}");
+                  "----------------------CurrentUser Detected----------------$currentUser");
               return StreamBuilder<DocumentSnapshot>(
                   stream: FirebaseFirestore.instance
                       .collection("user")
@@ -218,12 +216,12 @@ class _Splash extends State<Splash> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       print(
                           "----------------------CurrentUser---------------- snapshot.connectionState == ConnectionState.waiting");
-                      return LoadingScreen();
+                      return const LoadingScreen();
                     }
                     if (snapshot.hasError) {
                       print(
                           "----------------------CurrentUser---------------- snapshot.hasError");
-                      return LoadingScreen();
+                      return const LoadingScreen();
                     }
 
                     if (snapshot.hasData) {
@@ -283,7 +281,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme
                   .of(context)
                   .textTheme
-                  .headline4,
+                  .headlineMedium,
             ),
           ],
         ),

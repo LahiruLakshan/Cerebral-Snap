@@ -31,7 +31,7 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
         backgroundColor: AppTheme.colors.white,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/background.png"),
             opacity: 0.8,
@@ -43,7 +43,7 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -63,7 +63,7 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
                             }
                         });
                       },
-                      title: "${"Camera"}",
+                      title: "Camera",
                       fontSize: 18.0,
                       icon:
                       const FaIcon(FontAwesomeIcons.camera, size: 20),
@@ -88,7 +88,7 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
                             }
                         });
                       },
-                      title: "${"Gallery"}",
+                      title: "Gallery",
                       fontSize: 18.0,
                       icon: const FaIcon(FontAwesomeIcons.photoFilm,
                           size: 20),
@@ -99,7 +99,7 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
                     ),
                   ],
                 ),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: () {
                     // providerUser.currentUser = widget.currentUser;

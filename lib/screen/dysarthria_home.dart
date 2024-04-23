@@ -1,14 +1,9 @@
 import 'dart:io';
 import 'dart:convert';
-import 'dart:io';
-import 'package:cerebral_snap/screen/recorder.dart';
-import 'package:cerebral_snap/screen/upload_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -40,13 +35,20 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
         title: Text("Dysarthria Prediction", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/background.png"),
+            opacity: 0.8,
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -59,7 +61,7 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                         //           Recorder()),
                         // );
                       },
-                      title: "${"Recoder"}",
+                      title: "Recoder",
                       fontSize: 18.0,
                       icon:
                       const FaIcon(FontAwesomeIcons.recordVinyl, size: 20),
@@ -77,7 +79,7 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                         if (result == null) return;
                         handleUploadImage(File(result.files.single.path!));
                         },
-                      title: "${"Audio File"}",
+                      title: "Audio File",
                       fontSize: 18.0,
                       icon: const FaIcon(FontAwesomeIcons.fileAudio,
                           size: 20),
@@ -88,7 +90,7 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                     ),
                   ],
                 ),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: () {
                     // providerUser.currentUser = widget.currentUser;

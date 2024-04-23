@@ -77,7 +77,7 @@ class _AppDropdownState extends State<AppDropdown> {
           ),
           border: InputBorder.none,
           labelText: widget.labelText,
-          labelStyle: TextStyle(color: Color(0xff000000)),
+          labelStyle: const TextStyle(color: Color(0xff000000)),
           hintStyle: const TextStyle(color: Color(0xffB6B7B7)),
         ),
 

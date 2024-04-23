@@ -33,7 +33,7 @@ class _UploadedImageState extends State<UploadedImage> {
         backgroundColor: AppTheme.colors.white,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/background.png"),
             opacity: 0.8,
@@ -50,7 +50,7 @@ class _UploadedImageState extends State<UploadedImage> {
                   height: 200.0,
                   width: width,
                   margin:
-                  EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+                  const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
                   decoration:
                   widget.uploadImage == null || widget.uploadImage == true
                       ? BoxDecoration(color: AppTheme.colors.blue)
@@ -61,20 +61,20 @@ class _UploadedImageState extends State<UploadedImage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 if (isLoading! == false && isPredictionFinish! == false)
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
                         isLoading = true;
                       });
-                      print("isLoading => ${isLoading}");
+                      print("isLoading => $isLoading");
                       print("Upload Image => ${widget.uploadImage}");
                       handleUploadImage(widget.uploadImage!);
                       // Navigator.pushNamed(context, UploadScreen.routeName);
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: AppTheme.colors.blue, // Dark blue
+                      backgroundColor: AppTheme.colors.blue, // Dark blue
                       padding: const EdgeInsets.all(16),
                       shape: RoundedRectangleBorder(
                         borderRadius:

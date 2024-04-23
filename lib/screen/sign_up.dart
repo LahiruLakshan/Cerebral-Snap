@@ -2,13 +2,11 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../theme/app_theme.dart';
 import '../validation/form_validation.dart';
-import '../widgets/app_dropdown.dart';
 import '../widgets/app_elevated_button.dart';
 import '../widgets/app_text_field.dart';
 
@@ -66,8 +64,8 @@ class _SignUpState extends State<SignUp> {
 
                     //email textfield
                     Container(
-                      margin: EdgeInsets.only(top: 75),
-                      child: Text("Sign Up Now",
+                      margin: const EdgeInsets.only(top: 75),
+                      child: const Text("Sign Up Now",
                           style: TextStyle(
                               fontFamily: 'Roboto',
                               fontSize: 34,

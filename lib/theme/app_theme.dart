@@ -11,7 +11,7 @@ class AppTheme{
   static ThemeData define() {
     return ThemeData(
       fontFamily: "EFRegular",
-      primaryColor: const Color(0xffC6AD70),
+      primaryColor: const Color(0xff00388b),
       hintColor: const Color(0xff252525),
       focusColor: const Color(0xff181818),
     );

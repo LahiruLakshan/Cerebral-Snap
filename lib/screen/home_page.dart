@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cerebral_snap/screen/brain_tumor_home.dart';
 import 'package:cerebral_snap/screen/dysarthria_home.dart';
+import 'package:cerebral_snap/screen/games_home.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ import 'package:provider/provider.dart';
 import '../providers/user_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_elevated_button_icon.dart';
-import 'package:image_picker/image_picker.dart';
 
 class HomePage extends StatefulWidget {
   final DocumentSnapshot<Object?>? currentUser;
@@ -49,8 +49,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        elevation: 1,
         actions: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                       color: AppTheme.colors.white)),
             ],
           ),
-          SizedBox(width: 10.0),
+          const SizedBox(width: 10.0),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: SizedBox(
@@ -89,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: CircleAvatar(
                     radius: 20,
-                    backgroundImage: AssetImage('assets/images/user_icon.png'),
+                    backgroundImage: const AssetImage('assets/images/user_icon.png'),
                     backgroundColor: AppTheme.colors.white,
                   ),
                 ),
@@ -99,7 +98,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/background.png"),
             opacity: 0.8,
@@ -110,10 +109,10 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 children: [
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Column(
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                         onPrimary: AppTheme.colors.white,
                         borderRadius: 10,
                       ),
-                      SizedBox(height: 30.0),
+                      const SizedBox(height: 30.0),
                       AppElevatedButtonIcon(
                         onPressed: () {
                           providerUser.currentUser = widget.currentUser;
@@ -156,15 +155,15 @@ class _HomePageState extends State<HomePage> {
                         onPrimary: AppTheme.colors.white,
                         borderRadius: 10,
                       ),
-                      SizedBox(height: 30.0),
+                      const SizedBox(height: 30.0),
                       AppElevatedButtonIcon(
                         onPressed: () {
-                          // providerUser.currentUser = widget.currentUser;
-                          // print("User : ${widget.currentUser}");
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => BrainTumorHome(currentUser: widget.currentUser)),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GamesHome(
+                                    currentUser: widget.currentUser)),
+                          );
                         },
                         title: "Play Games",
                         fontSize: 18,

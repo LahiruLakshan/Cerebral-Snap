@@ -65,13 +65,11 @@ class _AppElevatedButtonIconState extends State<AppElevatedButtonIcon> {
                       color: AppTheme.colors.white)),
               onPressed: widget.onPressed,
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 17.0, horizontal: 10.0),
+                foregroundColor: widget.onPrimary, padding: const EdgeInsets.symmetric(
+                    vertical: 17.0, horizontal: 10.0), backgroundColor: widget.primary,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius ?? 35.0),
                 ),
-                primary: widget.primary,
-                onPrimary: widget.onPrimary,
               )),
         ),
       ),

@@ -17,8 +17,8 @@ class Login extends StatefulWidget {
 
   static Route route() {
     return MaterialPageRoute(
-      settings: RouteSettings(name: routeName),
-      builder: (_) => Login(),
+      settings: const RouteSettings(name: routeName),
+      builder: (_) => const Login(),
     );
   }
 
@@ -68,8 +68,8 @@ class _LoginState extends State<Login> {
                   children: [
                     //email textfield
                     Container(
-                      margin: EdgeInsets.only(top: 75),
-                      child: Text("Sign In Now",
+                      margin: const EdgeInsets.only(top: 75),
+                      child: const Text("Sign In Now",
                           style: TextStyle(
                               fontFamily: 'Roboto',
                               fontSize: 34,

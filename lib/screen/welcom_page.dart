@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../theme/app_theme.dart';
-import '../validation/form_validation.dart';
 import '../widgets/app_elevated_button.dart';
-import '../widgets/app_text_field.dart';
 import 'login.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -56,8 +54,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     Image.asset('assets/images/logo.png', width: 200),
                     //email textfield
                     Container(
-                      margin: EdgeInsets.only(top: 100),
-                      child: Text("Welcome",
+                      margin: const EdgeInsets.only(top: 100),
+                      child: const Text("Welcome",
                           style: TextStyle(
                               fontFamily: 'Roboto',
                               fontSize: 34,
