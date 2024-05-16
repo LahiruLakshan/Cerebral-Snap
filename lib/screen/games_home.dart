@@ -31,8 +31,18 @@ class _GamesHomeState extends State<GamesHome> {
       appBar: AppBar(
         title: Text("Games Analysis", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
+        iconTheme: IconThemeData(
+          color: AppTheme.colors.blue, //change your color here
+        ),
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/background.png"),
+            opacity: 0.8,
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -43,7 +53,7 @@ class _GamesHomeState extends State<GamesHome> {
                   onPressed: ()  {
                     DeviceApps.openApp('com.example.bricks_breaker');
                   },
-                  title: "Bricks Breacker",
+                  title: "Bricks Breaker",
                   fontSize: 18.0,
                   icon: const FaIcon(FontAwesomeIcons.bowlingBall,
                       size: 20),
@@ -55,14 +65,23 @@ class _GamesHomeState extends State<GamesHome> {
                 const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) =>
-                    //           Recorder()),
-                    // );
+                    DeviceApps.openApp('com.example.flappy_bird_game');
                   },
                   title: "Flappy Bird",
+                  fontSize: 18.0,
+                  icon:
+                  const FaIcon(FontAwesomeIcons.kiwiBird, size: 20),
+                  primary: AppTheme.colors.blue,
+                  onPrimary: AppTheme.colors.white,
+                  width: 200,
+                  borderRadius: 10,
+                ),
+                const SizedBox(height: 30.0),
+                AppElevatedButtonIcon(
+                  onPressed: () {
+                    DeviceApps.openApp('com.example.pixel_adventure');
+                  },
+                  title: "Pixel Adventure",
                   fontSize: 18.0,
                   icon:
                   const FaIcon(FontAwesomeIcons.kiwiBird, size: 20),

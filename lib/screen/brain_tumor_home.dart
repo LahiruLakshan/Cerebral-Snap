@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cerebral_snap/screen/tumor_records.dart';
 import 'package:cerebral_snap/screen/upload_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,9 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
       appBar: AppBar(
         title: Text("Brain Tumor", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
+        iconTheme: IconThemeData(
+          color: AppTheme.colors.blue, //change your color here
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -102,12 +106,10 @@ class _BrainTumorHomeState extends State<BrainTumorHome> {
                 const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: () {
-                    // providerUser.currentUser = widget.currentUser;
-                    // print("User : ${widget.currentUser}");
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => BrainTumorHome(currentUser: widget.currentUser)),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TumorRecords(currentUser: widget.currentUser)),
+                    );
                   },
                   title: "Records",
                   fontSize: 18,

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cerebral_snap/screen/brain_tumor_home.dart';
 import 'package:cerebral_snap/screen/dysarthria_home.dart';
+import 'package:cerebral_snap/screen/final_report.dart';
 import 'package:cerebral_snap/screen/games_home.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     final user = FirebaseAuth.instance.currentUser!;
     print("user---->   $user");
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color(0xff00388b),
       appBar: AppBar(
         toolbarHeight: 90.0,
         leadingWidth: 100,
@@ -49,7 +50,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-        elevation: 1,
+        backgroundColor: const Color(0xff00388b),
+        elevation: 0,
         actions: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -169,6 +171,24 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 18,
                         icon:
                             const FaIcon(FontAwesomeIcons.gamepad, size: 20),
+                        primary: AppTheme.colors.blue,
+                        onPrimary: AppTheme.colors.white,
+                        borderRadius: 10,
+                      ),
+                      const SizedBox(height: 30.0),
+                      AppElevatedButtonIcon(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FinalReport(
+                                    currentUser: widget.currentUser)),
+                          );
+                        },
+                        title: "Final Report",
+                        fontSize: 18,
+                        icon:
+                        const FaIcon(FontAwesomeIcons.file, size: 20),
                         primary: AppTheme.colors.blue,
                         onPrimary: AppTheme.colors.white,
                         borderRadius: 10,

@@ -50,6 +50,9 @@ class _RecorderState extends State<Recorder> {
       appBar: AppBar(
         title: Text("Disease Prediction", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
+        iconTheme: IconThemeData(
+          color: AppTheme.colors.blue, //change your color here
+        ),
       ),
       body: SingleChildScrollView(
         child: Center(

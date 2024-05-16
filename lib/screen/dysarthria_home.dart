@@ -34,6 +34,9 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
       appBar: AppBar(
         title: Text("Dysarthria Prediction", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
+        iconTheme: IconThemeData(
+          color: AppTheme.colors.blue, //change your color here
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
