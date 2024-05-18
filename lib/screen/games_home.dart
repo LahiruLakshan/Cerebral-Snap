@@ -81,10 +81,10 @@ class _GamesHomeState extends State<GamesHome> {
                   onPressed: () {
                     DeviceApps.openApp('com.example.pixel_adventure');
                   },
-                  title: "Pixel Adventure",
+                  title: "Maze Game",
                   fontSize: 18.0,
                   icon:
-                  const FaIcon(FontAwesomeIcons.kiwiBird, size: 20),
+                  const FaIcon(FontAwesomeIcons.puzzlePiece, size: 20),
                   primary: AppTheme.colors.blue,
                   onPrimary: AppTheme.colors.white,
                   width: 200,

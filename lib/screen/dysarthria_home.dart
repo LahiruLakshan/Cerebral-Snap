@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+import 'package:cerebral_snap/screen/tumor_records.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class DysarthriaHome extends StatefulWidget {
 class _DysarthriaHomeState extends State<DysarthriaHome> {
   File? uploadImage;
   String uri =
-      "https://d00d-35-194-203-8.ngrok-free.app/predict";
+      "https://2249-34-75-19-224.ngrok-free.app/predict";
   dynamic responseList;
   bool? isLoading = false;
   bool? isPredictionFinish = false;
@@ -48,31 +49,31 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               children: [
                 const SizedBox(height: 30.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppElevatedButtonIcon(
-                      onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) =>
-                        //           Recorder()),
-                        // );
-                      },
-                      title: "Recoder",
-                      fontSize: 18.0,
-                      icon:
-                      const FaIcon(FontAwesomeIcons.recordVinyl, size: 20),
-                      primary: AppTheme.colors.blue,
-                      onPrimary: AppTheme.colors.white,
-                      width: (width - 30) / 2 - 15,
-                      borderRadius: 10,
-                    ),
+                    // AppElevatedButtonIcon(
+                    //   onPressed: () {
+                    //     // Navigator.push(
+                    //     //   context,
+                    //     //   MaterialPageRoute(
+                    //     //       builder: (context) =>
+                    //     //           Recorder()),
+                    //     // );
+                    //   },
+                    //   title: "Recoder",
+                    //   fontSize: 18.0,
+                    //   icon:
+                    //   const FaIcon(FontAwesomeIcons.recordVinyl, size: 20),
+                    //   primary: AppTheme.colors.blue,
+                    //   onPrimary: AppTheme.colors.white,
+                    //   width: (width - 30) / 2 - 15,
+                    //   borderRadius: 10,
+                    // ),
                     AppElevatedButtonIcon(
                       onPressed: () async {
                         setState(() {
@@ -88,7 +89,7 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                           size: 20),
                       primary: AppTheme.colors.blue,
                       onPrimary: AppTheme.colors.white,
-                      width: (width - 30) / 2 - 15,
+                      width: width - 30,
                       borderRadius: 10,
                     ),
                   ],
@@ -96,12 +97,10 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
                 const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: () {
-                    // providerUser.currentUser = widget.currentUser;
-                    // print("User : ${widget.currentUser}");
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => BrainTumorHome(currentUser: widget.currentUser)),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TumorRecords(currentUser: widget.currentUser)),
+                    );
                   },
                   title: "Records",
                   fontSize: 18,
@@ -161,5 +160,6 @@ class _DysarthriaHomeState extends State<DysarthriaHome> {
       isPredictionFinish = true;
     });
     print("prediction => ${responseList["prediction"]}");
+    print("probabilities => ${responseList["probabilities"]}");
   }
 }
