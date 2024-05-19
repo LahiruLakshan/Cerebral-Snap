@@ -95,7 +95,7 @@ class _FinalReportState extends State<FinalReport> {
                     ),
                     const SizedBox(height: 5.0),
                     Container(
-                      height: 80,
+                      height: 120,
                       child: StreamBuilder<QuerySnapshot>(
                         stream: _tumorRecordsStream,
                         builder: (context, snapshot) {
