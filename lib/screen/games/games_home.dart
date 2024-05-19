@@ -1,11 +1,12 @@
 import 'dart:io';
+import 'package:cerebral_snap/screen/games/snake_game_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../theme/app_theme.dart';
-import '../widgets/app_elevated_button_icon.dart';
+import '../../theme/app_theme.dart';
+import '../../widgets/app_elevated_button_icon.dart';
 
 class GamesHome extends StatefulWidget {
   final  DocumentSnapshot<Object?>? currentUser;
@@ -51,7 +52,7 @@ class _GamesHomeState extends State<GamesHome> {
                 const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: ()  {
-                    DeviceApps.openApp('com.example.bricks_breaker');
+
                   },
                   title: "Bricks Breaker",
                   fontSize: 18.0,
@@ -79,12 +80,34 @@ class _GamesHomeState extends State<GamesHome> {
                 const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: () {
-                    DeviceApps.openApp('com.example.pixel_adventure');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SnakeGamePage()),
+                    );
                   },
-                  title: "Maze Game",
+                  title: "Snake Game",
                   fontSize: 18.0,
                   icon:
                   const FaIcon(FontAwesomeIcons.puzzlePiece, size: 20),
+                  primary: AppTheme.colors.blue,
+                  onPrimary: AppTheme.colors.white,
+                  width: 200,
+                  borderRadius: 10,
+                ),
+                const SizedBox(height: 30.0),
+                AppElevatedButtonIcon(
+                  onPressed: () {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const SnakeGamePage()),
+                    // );
+                  },
+                  title: "Records",
+                  fontSize: 18.0,
+                  icon:
+                  const FaIcon(FontAwesomeIcons.history, size: 20),
                   primary: AppTheme.colors.blue,
                   onPrimary: AppTheme.colors.white,
                   width: 200,
