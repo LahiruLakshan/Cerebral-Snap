@@ -29,7 +29,7 @@ class _FinalReportState extends State<FinalReport> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Brain Tumor", style: TextStyle(color: AppTheme.colors.blue),),
+        title: Text("Final Report", style: TextStyle(color: AppTheme.colors.blue),),
         backgroundColor: AppTheme.colors.white,
         iconTheme: IconThemeData(
           color: AppTheme.colors.blue, //change your color here
@@ -214,7 +214,7 @@ class _FinalReportState extends State<FinalReport> {
                     ),
                     const SizedBox(height: 5.0),
                     Container(
-                      height: 200,
+                      height: 70,
                       child: StreamBuilder<QuerySnapshot>(
                         stream: _dysarthriaRecordsStream,
                         builder: (context, snapshot) {
@@ -313,7 +313,7 @@ class _FinalReportState extends State<FinalReport> {
                     ),
                     const SizedBox(height: 5.0),
                     Text(
-                      "Report - Audio Processing",
+                      "Report - Play Games",
                       style: TextStyle(
                         fontSize: 16.0,
                         color: AppTheme.colors.black,
@@ -323,75 +323,75 @@ class _FinalReportState extends State<FinalReport> {
                       maxLines: 2,
                     ),
                     const SizedBox(height: 5.0),
-                    Container(
-                      height: 200,
-                      child: StreamBuilder<QuerySnapshot>(
-                        stream: _dysarthriaRecordsStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState == ConnectionState.waiting) {
-                            return LoadingScreen();
-                          }
-                          if (snapshot.hasError) {
-                            return Center(
-                              child: Text("Data not found!",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  )),
-                            );
-                          }
-                          if (snapshot.hasData) {
-                            final List<DocumentSnapshot> recordData = snapshot.data!.docs;
-
-                            if(recordData.length != 0) {
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Cerebral Palsy Prediction : ${recordData[0]["dysarthriaDetection"] == "Dysarthria" ? "Positive":"Negative"}",
-                                    style: TextStyle(
-                                      fontSize: 16.0,
-                                      color: AppTheme.colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),
-                                  Text(
-                                    "Prediction : ${recordData[0]["probability"]}",
-                                    style: TextStyle(
-                                      fontSize: 16.0,
-                                      color: AppTheme.colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),Text(
-                                    "Updated At : ${DateFormat('dd-MM-yyyy   HH:mm').format(recordData[0]["timeStamp"].toDate())}",
-                                    style: TextStyle(
-                                      fontSize: 16.0,
-                                      color: AppTheme.colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),
-                                ],
-                              );
-                            }
-
-                            if(recordData.isEmpty) {
-                              return Text("Data not found!",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ));
-                            }
-
-
-                          }
-                          return Container(width:300,child: CircularProgressIndicator(color: AppTheme.colors.blue));
-                        },
-                      ),
-                    ),
+                    // Container(
+                    //   height: 200,
+                    //   child: StreamBuilder<QuerySnapshot>(
+                    //     stream: _dysarthriaRecordsStream,
+                    //     builder: (context, snapshot) {
+                    //       if (snapshot.connectionState == ConnectionState.waiting) {
+                    //         return LoadingScreen();
+                    //       }
+                    //       if (snapshot.hasError) {
+                    //         return Center(
+                    //           child: Text("Data not found!",
+                    //               style: TextStyle(
+                    //                 color: Colors.white,
+                    //               )),
+                    //         );
+                    //       }
+                    //       if (snapshot.hasData) {
+                    //         final List<DocumentSnapshot> recordData = snapshot.data!.docs;
+                    //
+                    //         if(recordData.length != 0) {
+                    //           return Column(
+                    //             crossAxisAlignment: CrossAxisAlignment.start,
+                    //             children: [
+                    //               Text(
+                    //                 "Cerebral Palsy Prediction : ${recordData[0]["dysarthriaDetection"] == "Dysarthria" ? "Positive":"Negative"}",
+                    //                 style: TextStyle(
+                    //                   fontSize: 16.0,
+                    //                   color: AppTheme.colors.black,
+                    //                   fontWeight: FontWeight.w500,
+                    //                 ),
+                    //                 overflow: TextOverflow.ellipsis,
+                    //                 maxLines: 2,
+                    //               ),
+                    //               Text(
+                    //                 "Prediction : ${recordData[0]["probability"]}",
+                    //                 style: TextStyle(
+                    //                   fontSize: 16.0,
+                    //                   color: AppTheme.colors.black,
+                    //                   fontWeight: FontWeight.w500,
+                    //                 ),
+                    //                 overflow: TextOverflow.ellipsis,
+                    //                 maxLines: 2,
+                    //               ),Text(
+                    //                 "Updated At : ${DateFormat('dd-MM-yyyy   HH:mm').format(recordData[0]["timeStamp"].toDate())}",
+                    //                 style: TextStyle(
+                    //                   fontSize: 16.0,
+                    //                   color: AppTheme.colors.black,
+                    //                   fontWeight: FontWeight.w500,
+                    //                 ),
+                    //                 overflow: TextOverflow.ellipsis,
+                    //                 maxLines: 2,
+                    //               ),
+                    //             ],
+                    //           );
+                    //         }
+                    //
+                    //         if(recordData.isEmpty) {
+                    //           return Text("Data not found!",
+                    //               style: TextStyle(
+                    //                 color: Colors.black,
+                    //               ));
+                    //         }
+                    //
+                    //
+                    //       }
+                    //       return Container(width:300,child: CircularProgressIndicator(color: AppTheme.colors.blue));
+                    //     },
+                    //   ),
+                    // ),
 
 
                   ],
