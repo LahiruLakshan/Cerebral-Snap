@@ -46,13 +46,16 @@ class _SnakeGamePageState extends State<SnakeGamePage> {
   }
 
   void showGameOverDialog() {
+    final endTime = DateTime.now();  // Capture the end time
+    final duration = endTime.difference(startTime);  // Calculate the duration
+
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
           title: const Text("Game Over"),
-          content: const Text("Your snake collided!"),
+          content: Text("Your snake collided!\nDuration: ${duration.inSeconds} seconds"),
           actions: [
             TextButton(
                 onPressed: () {
