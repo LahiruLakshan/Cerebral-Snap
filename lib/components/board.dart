@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:cerebral_snap/screen/bricks_breaker.dart';
+import 'package:cerebral_snap/screen/games/bricks_breaker.dart';
 import 'package:cerebral_snap/utils/constants.dart';
 import 'package:flame/collisions.dart';
 

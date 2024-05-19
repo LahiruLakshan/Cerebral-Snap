@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../theme/app_theme.dart';
-import 'loading_screen.dart';
+import '../../theme/app_theme.dart';
+import '../loading_screen.dart';
 
 class DysarthriaRecordsPage extends StatefulWidget {
   final DocumentSnapshot<Object?>? currentUser;

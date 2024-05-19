@@ -8,8 +8,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../theme/app_theme.dart';
-import '../widgets/app_elevated_button.dart';
+import '../../theme/app_theme.dart';
+import '../../widgets/app_elevated_button.dart';
 import 'tumor_treatment_page.dart';
 
 class UploadedImage extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:cerebral_snap/screen/bricks_breaker.dart';
+import 'package:cerebral_snap/screen/games/bricks_breaker.dart';
 import 'package:cerebral_snap/widgets/game_score.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';

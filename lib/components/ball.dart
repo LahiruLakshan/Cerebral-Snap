@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:cerebral_snap/screen/bricks_breaker.dart';
+import 'package:cerebral_snap/screen/games/bricks_breaker.dart';
 import 'package:cerebral_snap/components/board.dart';
 import 'package:cerebral_snap/components/brick.dart';
 import 'package:cerebral_snap/utils/constants.dart';

@@ -1,4 +1,4 @@
-import 'package:cerebral_snap/screen/bricks_breaker.dart';
+import 'package:cerebral_snap/screen/games/bricks_breaker.dart';
 import 'package:cerebral_snap/utils/constants.dart';
 import 'package:cerebral_snap/widgets/game_button.dart';
 import 'package:cerebral_snap/widgets/game_score.dart';

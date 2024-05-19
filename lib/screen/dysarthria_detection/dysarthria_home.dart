@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'dart:convert';
 import 'dart:math';
-import 'package:cerebral_snap/screen/dysarthria_records_page.dart';
+import 'package:cerebral_snap/screen/dysarthria_detection/dysarthria_records_page.dart';
 import 'package:cerebral_snap/screen/pdf_screen.dart';
-import 'package:cerebral_snap/screen/tumor_records.dart';
+import 'package:cerebral_snap/screen/brain_tumor_detection/tumor_records.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -13,9 +13,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../theme/app_theme.dart';
-import '../widgets/app_elevated_button.dart';
-import '../widgets/app_elevated_button_icon.dart';
+import '../../theme/app_theme.dart';
+import '../../widgets/app_elevated_button.dart';
+import '../../widgets/app_elevated_button_icon.dart';
 import 'dysarthria_treatment_page.dart';
 
 class DysarthriaHome extends StatefulWidget {

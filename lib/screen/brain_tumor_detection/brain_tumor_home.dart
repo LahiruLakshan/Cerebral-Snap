@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:cerebral_snap/screen/tumor_records.dart';
-import 'package:cerebral_snap/screen/upload_image.dart';
+import 'package:cerebral_snap/screen/brain_tumor_detection/tumor_records.dart';
+import 'package:cerebral_snap/screen/brain_tumor_detection/upload_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../theme/app_theme.dart';
-import '../widgets/app_elevated_button_icon.dart';
+import '../../theme/app_theme.dart';
+import '../../widgets/app_elevated_button_icon.dart';
 
 
 class BrainTumorHome extends StatefulWidget {

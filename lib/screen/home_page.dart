@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:cerebral_snap/screen/brain_tumor_home.dart';
-import 'package:cerebral_snap/screen/dysarthria_home.dart';
+import 'package:cerebral_snap/screen/brain_tumor_detection/brain_tumor_home.dart';
+import 'package:cerebral_snap/screen/dysarthria_detection/dysarthria_home.dart';
 import 'package:cerebral_snap/screen/final_report.dart';
 import 'package:cerebral_snap/screen/games_home.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
