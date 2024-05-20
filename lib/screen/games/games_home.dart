@@ -52,7 +52,7 @@ class _GamesHomeState extends State<GamesHome> {
                 const SizedBox(height: 30.0),
                 AppElevatedButtonIcon(
                   onPressed: ()  {
-
+                    DeviceApps.openApp('com.example.bricks_breaker');
                   },
                   title: "Bricks Breaker",
                   fontSize: 18.0,
