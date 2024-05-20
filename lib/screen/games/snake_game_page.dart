@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class SnakeGamePage extends StatefulWidget {
@@ -13,6 +14,8 @@ class SnakeGamePage extends StatefulWidget {
 enum Direction { up, down, left, right }
 
 class _SnakeGamePageState extends State<SnakeGamePage> {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   late DateTime startTime;
 
   int row = 20, column = 20;
@@ -58,7 +61,9 @@ class _SnakeGamePageState extends State<SnakeGamePage> {
           content: Text("Your snake collided!\nDuration: ${duration.inSeconds} seconds"),
           actions: [
             TextButton(
-                onPressed: () {
+                onPressed: () async {
+                  DocumentReference documentReference = _firestore.collection('temp').doc('temp_file');
+                  await documentReference.update({"snakeGamesec":duration.inSeconds});
                   Navigator.of(context).pop();
                   Navigator.of(context).pop();
                   // startGame();
