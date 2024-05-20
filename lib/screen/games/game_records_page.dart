@@ -96,7 +96,7 @@ class _GameRecordsPageState extends State<GameRecordsPage> {
                                           // width: 120.0,
                                           child: Flexible(
                                             child: Text(
-                                              "brikeBrakerSec : ${tumorRecord["brikeBrakerSec"]}",
+                                              "Brick Breaker : ${tumorRecord["brikeBrakerSec"]}",
                                               style: TextStyle(
                                                 fontSize: 14.0,
                                                 color: AppTheme.colors.white,
@@ -112,7 +112,7 @@ class _GameRecordsPageState extends State<GameRecordsPage> {
                                           // width: 120.0,
                                           child: Flexible(
                                             child: Text(
-                                              "flappyBirdsec : ${tumorRecord["flappyBirdsec"]}",
+                                              "Flappy Bird : ${tumorRecord["flappyBirdsec"]}",
                                               style: TextStyle(
                                                 fontSize: 14.0,
                                                 color: AppTheme.colors.white,
@@ -128,7 +128,23 @@ class _GameRecordsPageState extends State<GameRecordsPage> {
                                           // width: 120.0,
                                           child: Flexible(
                                             child: Text(
-                                              "snakeGamesec : ${tumorRecord["snakeGamesec"]}",
+                                              "Snake Game : ${tumorRecord["snakeGamesec"]}",
+                                              style: TextStyle(
+                                                fontSize: 14.0,
+                                                color: AppTheme.colors.white,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: 10.0),
+                                        Container(
+                                          // width: 120.0,
+                                          child: Flexible(
+                                            child: Text(
+                                              "Situation : ${tumorRecord["situation"]}",
                                               style: TextStyle(
                                                 fontSize: 14.0,
                                                 color: AppTheme.colors.white,
